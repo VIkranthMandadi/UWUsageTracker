@@ -5,6 +5,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { BasketballCourt } from "@/components/BasketballCourt";
 import { SidePanel } from "@/components/SidePanel";
+import { updateStatus } from "@/services/UpdateStatus";
 
 export default function NicScreen() {
   const [isSidePanelVisible, setSidePanelVisible] = useState(false); // Initial state is hidden
@@ -45,6 +46,8 @@ export default function NicScreen() {
         [courtName]: status,
       }));
     }
+    updateStatus(courtName, status);
+
     console.log(statuses)
   };
 
