@@ -7,7 +7,7 @@ import { BasketballCourt } from "@/components/BasketballCourt";
 import { SidePanel } from "@/components/SidePanel";
 import { updateStatus, fetchStatuses } from "@/services/UpdateStatus";
 
-export default function NicScreen() {
+export default function BakkeScreen() {
   const [isSidePanelVisible, setSidePanelVisible] = useState(false); // Initial state is hidden
   const [courtName, setCourtName] = useState("");
   const [statuses, setStatuses] = useState<{ [key: string]: string }>({
@@ -22,7 +22,7 @@ export default function NicScreen() {
   useEffect(() => {
     const initializeStatuses = async () => {
       try {
-        const fetchedStatuses = await fetchStatuses("Nic");
+        const fetchedStatuses = await fetchStatuses("Bakke");
         setStatuses(fetchedStatuses); // Update the local state with fetched statuses
       } catch (error) {
         console.error("Error initializing court statuses:", error);
@@ -59,7 +59,7 @@ export default function NicScreen() {
         [courtName]: status,
       }));
     }
-    updateStatus("Nic", courtName, status);
+    updateStatus("Bakke", courtName, status);
 
     console.log(statuses);
   };
@@ -107,6 +107,12 @@ export default function NicScreen() {
                 status={statuses["Court 3"]}
               />
             </View>
+            <View style={styles.courtWrapper}>
+              <BasketballCourt
+                onCourtPress={() => handleCourtPress("Court 4")}
+                status={statuses["Court 4"]}
+              />
+            </View>
           </View>
         </ThemedView>
 
@@ -116,14 +122,14 @@ export default function NicScreen() {
           <View style={styles.courtGrid}>
             <View style={styles.courtWrapper}>
               <BasketballCourt
-                onCourtPress={() => handleCourtPress("Court 4")}
-                status={statuses["Court 4"]}
+                onCourtPress={() => handleCourtPress("Court 5")}
+                status={statuses["Court 5"]}
               />
             </View>
             <View style={styles.courtWrapper}>
               <BasketballCourt
-                onCourtPress={() => handleCourtPress("Court 5")}
-                status={statuses["Court 5"]}
+                onCourtPress={() => handleCourtPress("Court 6")}
+                status={statuses["Court 6"]}
               />
             </View>
           </View>

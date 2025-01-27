@@ -1,22 +1,7 @@
 import React from "react";
 import { View, Pressable, StyleSheet } from "react-native";
+import stringToColors from "@/components/ColorsMap";
 
-const colors = {
-  "busy+": ["#800000", "#800000"],
-  busy: ["#FF0000", "#FF0000"],
-  "half-busy": ["#FF0000", "#FFFFFF"],
-  light: ["#FFE135", "#FFE135"],
-  empty: ["#FFFFFF", "#FFFFFF"],
-  "not-open": ["grey", "grey"],
-};
-
-type Status = keyof typeof colors;
-
-function stringToColors(status: string): string[] {
-  // If the status is found in the colors object, return the corresponding colors.
-  // Otherwise, return the colors for the "empty" status by default.
-  return colors[status as Status] || colors["empty"];
-}
 // Define the props for the BasketballCourt component
 interface BasketballCourtProps {
   onCourtPress?: () => void; // Optional callback for the top half press
